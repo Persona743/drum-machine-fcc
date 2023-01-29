@@ -3,6 +3,12 @@ import './App.css';
 
 const App = () => {
 
+  useEffect(() => {
+    document.addEventListener('keydown', (event) => {
+      playSound(event.key.toUpperCase())
+    })
+  }, [])
+
   const drumPads = [
     {
       text: 'Q',
@@ -53,7 +59,6 @@ const App = () => {
 
   function playSound(selector) {
     const audio = document.getElementById(selector);
-    console.log(audio);
     audio.play()
   }
 
